@@ -67,7 +67,7 @@
 		function formatoarray($result)
 		{
 			$array = array();
-			for($i = 0 ; $row = pg_fetch_row($result); $i++)
+			for($i = 0 ; $row = pg_fetch_array($result); $i++)
 			{
 			 $array[$i] = $row;
 			}
@@ -138,6 +138,36 @@
 					echo pg_last_error($conn);
 					return false;
 				}
+				pg_close($conn);
+				return $result;	
+		}
+		
+		function get_monitor()
+		{
+				$connect = new conexion();
+				$conn= $connect->conectar();
+				$query= "SELECT * from monitor";
+				if(!$result= pg_query($conn,$query))
+				{
+					echo pg_last_error($conn);
+					return false;
+				}
+				$result = $this->formatoarray($result);
+				pg_close($conn);
+				return $result;	
+		}
+		
+		function get_asesor()
+		{
+				$connect = new conexion();
+				$conn= $connect->conectar();
+				$query= "SELECT * from asesor";
+				if(!$result= pg_query($conn,$query))
+				{
+					echo pg_last_error($conn);
+					return false;
+				}
+				$result = $this->formatoarray($result);
 				pg_close($conn);
 				return $result;	
 		}

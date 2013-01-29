@@ -14,6 +14,13 @@
        
       <div id="messageBox"><label id="message"/> INSCRIPCION</div>  
 
+   <?php
+$pasesor= new Comunidad();
+$asesor= $pasesor->get_asesor();
+$pmonitor = new Comunidad();
+$monitor = $pmonitor->get_monitor();
+?>
+
 <table >
 	<tr>
 		<td>
@@ -44,8 +51,30 @@
 			<input type="text" name="amaterno"  value="<?php echo $upComunidad['apellido_materno']?>" />
 		</td>
 	</tr>
-	
-	
+
+ 	<tr>
+
+    <select id="select_asesor">
+    
+    <option value="">Elige asesor</option>
+    <?php foreach($asesor as $t_asesor):?>	<option value="<?php echo $t_asesor['id_asesor']; ?>">
+      <?php echo $t_asesor['apellido_paterno']; 	 echo "  " ;
+	 echo $t_asesor['apellido_materno']; 	 echo "  /   "; echo $t_asesor['nombre']; ?>
+     </option>
+    <?php endforeach; ?>
+	</select>
+    
+     <select id="select_monitor">
+     
+    <option value="">Elige monitor</option>
+    <?php foreach($monitor as $t_monitor):?>	<option value="<?php echo $t_monitor['id_monitor']; ?>">
+     <?php echo $t_monitor['apellido_paterno']; 	 echo "  " ;
+	 echo $t_monitor['apellido_materno']; 	 echo "  /   "; echo $t_monitor['nombre']; ?>
+     </option>
+    <?php endforeach; ?>
+	</select>
+    
+    </tr>
 	<tr>
 		<td>
 			<input type="submit" name="submit" id="button" value="Enviar"  class="m-btn blue rnd" onclick="Cancelar()" />
