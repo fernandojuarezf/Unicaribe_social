@@ -55,17 +55,23 @@
 		 $this->_correo = $value17; 
 		 $this->_escolaridad = $value18; 
 		 $this->_sexo = $value19; 
-		 $this->_observaciones = $value20; 
-	     
-		 
+		 $this->_observaciones = $value20;  
 	  }
 	  
-		public function getName()
-		{ return $this->_nombre;}
-		
 		public function setID($id)
 		{
 			$this->_id= $id;
+		}
+		
+		//funcion para formatear el result
+		function formatoarray($result)
+		{
+			$array = array();
+			for($i = 0 ; $row = pg_fetch_row($result); $i++)
+			{
+			 $array[$i] = $row;
+			}
+			return $array;
 		}
 		
 		
@@ -88,11 +94,20 @@
 				} 
 		}
 	
+	//funcion  modelo para querys
+	
 		function mostrar_comunidad($id)
 		{
 			    $connect = new conexion();
 				$conn= $connect->conectar();
-				return  pg_query($conn, "SELECT * FROM comunidad WHERE id_comunidad=$id");
+				$query= "SELECT * FROM comunidad WHERE id_comunidad=$id";
+				if(!$result= pg_query($conn,$query))
+				{
+					echo pg_last_error($conn);
+					return false;
+				}
+				pg_close($conn);
+				return $result;
 		}
 		  
 		  function actualizar()
@@ -117,7 +132,14 @@
 		{
 				$connect = new conexion();
 				$conn= $connect->conectar();
-				return pg_query($conn, "SELECT * from comunidad");	
+				$query= "SELECT * from comunidad order by id_comunidad";
+				if(!$result= pg_query($conn,$query))
+				{
+					echo pg_last_error($conn);
+					return false;
+				}
+				pg_close($conn);
+				return $result;	
 		}
 		 
 	}

@@ -1,18 +1,18 @@
 	function ActualizarDatos(){
-		var cliente_id = $('#cliente_id').attr('value');
-		var nombres = $('#nombres').attr('value');
+		var cliente_id = $('#id_comunidad').attr('value');
+		var nombres = $('#nombre').attr('value');
 		var ciudad = $('#ciudad').attr('value'); 
 		var alternativas = $("input[@name='alternativas']:checked").attr("value");
 		var telefono = $("#telefono").attr("value");
 		var fecha_nacimiento = $("#fecha_nacimiento").attr("value");
 
 		$.ajax({
-			url: 'actualizar.php',
+			url: 'update.php',
 			type: "POST",
 			data: "submit=&nombres="+nombres+"&ciudad="+ciudad+"&alternativas="+alternativas+"&telefono="+telefono+"&fecha_nacimiento="+fecha_nacimiento+"&cliente_id="+cliente_id,
 			success: function(datos){
 				alert(datos);
-				ConsultaDatos();
+				//ConsultaDatos();
 				$("#formulario").hide();
 				$("#tabla").show();
 			}

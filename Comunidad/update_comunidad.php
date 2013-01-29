@@ -10,7 +10,7 @@
 		$upComunidad = pg_fetch_array($consulta);
 	?>
 	<form id="frmUpComunidad" name="frmClienteActualizar" method="post" action="update.php" >
-    	<input type="hidden" name="cliente_id" id="id_comunidad" value="<?php echo $upComunidad['id_comunidad']?>" />
+    	<input type="hidden" name="id_comunidad" id="id_comunidad" value="<?php echo $upComunidad['id_comunidad']?>" />
        
       <div id="messageBox"><label id="message"/></div>  
 
@@ -22,7 +22,8 @@
 		<td>
 			<input type="text" name="nombre"  value="<?php echo $upComunidad['nombre']?>" >
 		</td>
-		<td>
+	
+    	<td>
 			<label>Fotografía</label>
 		</td>
 		<td>
@@ -174,7 +175,7 @@
 	</tr>
 	<tr>
 		<td>
-			<input type="submit" name="submit" id="button" value="Enviar"  class="m-btn blue rnd" onclick="Cancelar()" />
+			<input type="submit" name="submit" id="button" value="Enviar"  class="m-btn blue rnd" onclick="ActualizarDatos()" />
 		</td>
 		<td>
 			 <input type="button" class="m-btn red rnd" name="cancelar" id="cancelar" value="Cancelar" onclick="Cancelar()" />
