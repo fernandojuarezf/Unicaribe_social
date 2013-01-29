@@ -1,0 +1,196 @@
+﻿p
+{
+	margin: 0 0 0 0;
+	text-align:left;
+	font-size:9pt;
+	padding:1pt 1pt 1pt 1pt;
+}
+    	
+.cerrarMsj
+{
+	font-weight:bold;
+	margin:0;
+    border-width:0px;
+    cursor:pointer;
+    background: url("Imagenes/cerrarMsj.png") no-repeat transparent;
+    width:30px;
+    height:25px;
+    position: relative;
+    float:right;
+    padding-top:0px;
+}
+
+ 		
+  	/*ERROR*/
+  	
+  	div.topError
+    	{
+    		height:8px;
+    		background-image:url("Error/Top.gif");
+    		background-repeat:repeat-x;
+    	}
+    	div.iconoError
+    	{
+    		float:left;
+    		background: url("Error/iconoError.png") no-repeat;
+    	    width:22px;
+    	    height:22px; 
+    	    margin-left:5pt;
+    	}
+    	div.contentError
+    	{
+    		background-color:#FACCC8;
+    		width:auto;
+    	}
+    	div.boxcontrolError
+    	{
+    	 	color:#950505;
+    		font: Calibri,Verdana,Arial 9pt;
+    	}
+    	div.bottomError
+    	{
+    		height:8px;
+    		background:url("Error/Bottom.gif");
+    		background-repeat: repeat-x;
+   		}
+    	
+    	div.rbroundboxError  
+    	{
+    		width: 100%; 
+    		margin: auto; 
+    		margin-bottom:5pt;
+    		border: 1pt solid #9A1003;
+    		padding:0px;	
+    		background-color:#FACCC8;
+		}
+    	
+/*Informacion*/
+
+    	div.topInfo
+    	{
+    		height:8px;
+    		background-image:url("Info/Top.png");
+    		background-repeat:repeat-x;
+    	}
+    	div.iconoInfo
+    	{
+    		float:left;
+    		background: url("Info/iconoInfo.png") no-repeat;
+    	    width:22px;
+    	    height:22px; 
+    	    margin-left:5pt;
+    	}
+    
+    	div.contentInfo
+    	{
+    		background-color:#BBEEFF;
+    		width:auto;
+    	}
+    	div.boxcontrolInfo
+    	{
+    	 	color:#00529B;
+    		font-size:9pt;
+    	}
+    	div.bottomInfo
+    	{
+    		height:8px;
+    		background:url("Info/Bottom.png");
+    		background-repeat: repeat-x;
+   		}
+    	
+    	div.rbroundboxInfo  
+    	{
+    		width: 100%; 
+    		margin: auto; 
+    		margin-bottom:5pt;
+    		border: 1pt solid #00529B;
+    		background-color:#BBEEFF;
+		}
+
+/*Correcto*/
+
+    	div.topOk
+    	{
+    		height:8px;
+    		background-image:url("Correcto/Top.gif");
+    		background-repeat:repeat-x;
+    	}
+    	div.iconoOk
+    	{
+    		float:left;
+    		background: url("Correcto/iconoCorrecto.png") no-repeat;
+    	    width:22px;
+    	    height:22px; 
+    	    margin-left:5pt;
+    	}
+
+    	div.contentOk
+    	{
+    		background-color:#DBF1B6;
+    		width:auto;
+    	}
+    	div.boxcontrolOk
+    	{
+    	 	color:#0F6E0A;
+    		font: Verdana,Calibri,Arial 12pt;
+    	}
+    	div.bottomOk
+    	{
+    		height:8px;
+    		background:url("Correcto/Bottom.gif");
+    		background-repeat: repeat-x;
+   		}
+    	div.rbroundboxOk
+    	{
+    		width: 100%; 
+    		margin: auto; 
+    		margin-bottom:5pt;
+    		border: 1pt solid #4F8A10;
+    		padding:0px;	
+    		background-color:#DBF1B6;
+		}
+    	
+    	/*WARNING*/
+    	
+    	div.topWarn
+    	{
+    		height:8px;
+    		background-image:url("Precaucion/Top.gif");
+    		background-repeat:repeat-x;
+    	}
+    	div.iconoWarn
+    	{
+    		float:left;
+    		background: url("Precaucion/iconoWarning.png") no-repeat;
+    	    width:22px;
+    	    height:22px; 
+    	    margin-left:5pt;
+    	}
+    	div.contentWarn
+    	{
+    		background-color:#FEFF99;
+    		width:auto;
+    	}
+    	div.boxcontrolWarn
+    	{
+    	 	color:#592623;
+    		font: Verdana,Calibri,Arial 12pt;
+    	}
+    	div.bottomWarn
+    	{
+    		height:8px;
+    		background:url("Precaucion/Bottom.gif");
+    		background-repeat: repeat-x;
+   		}
+		div.rbroundboxWarn
+    	{
+    		width: 100%; 
+    		margin: auto; 
+    		margin-bottom:5pt;
+    		border: 1pt solid #592623;
+    		background-color:#FEFF99;
+		}
+
+
+/**************************************************/
+

@@ -1,0 +1,17 @@
+.left_c {
+    border:1px solid #990000;
+    width:49%;
+	
+	float: left;
+    margin:auto;
+}
+
+.rigth_c{
+	border:1px solid #990000;
+    width:48%;
+	
+	float: left;
+    margin:auto;
+
+
+}
