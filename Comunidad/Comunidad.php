@@ -26,7 +26,7 @@
 		private $_escolaridad;
 		private $_observaciones;
 		
-		
+		//Segunda prueba commit
 		
 		// This property has no "set" method, and therefore is read-only
 		public function Comunidad(){}
