@@ -25,7 +25,7 @@
 		private $_correo;
 		private $_escolaridad;
 		private $_observaciones;
-		
+		//First change ccardenas
 		
 		
 		// This property has no "set" method, and therefore is read-only
