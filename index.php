@@ -78,7 +78,7 @@ body {
    <li><a class="m-btn blue-stripe"  onClick="Verpagina('Monitor/mview_comunidad.php');" >Monitor</a></li>
     <li><a class="m-btn blue-stripe"  onclick= "Verpagina('Comunidad/mview_comunidad.php')" >Comunidad</a></li>
     <li><a class="m-btn blue-stripe"  onclick= "Verpagina('Salon/mview_comunidad.php')" >Salon</a></li>
-    <li><a class="m-btn blue-stripe"  onclick= "Verpagina('Taller/mview_comunidad.php')">Taller</a></li>   
+    <li><a class="m-btn blue-stripe"  onclick= "Verpagina('Curso/mview_curso.php')">Taller</a></li>   
     <li><a class="m-btn blue-stripe"  href="salir.php">Salir</a></li>
 </ul>
 </div>
