@@ -1,26 +1,35 @@
-<?php include 'comunidad.class.php' ?>
+<?php include 'curso.class.php' ?>
 <?php 
 try
 {
 
 	
-	$Comunidad = new Comunidad();
-	$Comunidad->setValues($_POST['nombre'], $_POST['foto'],$_POST['apaterno'], $_POST['amaterno'], $_POST['fnacimiento'],
-							$_POST['tutor'], $_POST['pariente'], $_POST['ubicacion'], $_POST['calle'], 
-							$_POST['tel_casa'], $_POST['tel_tuto'], $_POST['te_part'], $_POST['escolaridad'] ,
-							 $_POST['sexo'], $_POST['note'], $_POST['correo'], 'adress');
+	$ncurso = new curso();
+    $estatus = 1;
+    if( $_POST['status'] != 1)
+    	$estatus = 0;
+
+    $ncurso->setProperty('curso', $_POST['curso']);
+    $ncurso->setProperty('status', $estatus );
+    $ncurso->setProperty('hora_inicio',  $_POST['hora_inicio']);
+    $ncurso->setProperty('hora_fin',  $_POST['hora_fin']);
+    $ncurso->setProperty('edad', $_POST['edad'] );
+    $ncurso->setProperty('nivel', $_POST['nivel'] );
+    $ncurso->setProperty('cupo_max', $_POST['cupo_max'] );
+    $ncurso->setProperty('id_monitor', $_POST['selectMonitor'] );
+    $ncurso->setProperty('id_asesor', $_POST['selectAsesor'] );
 
 
-	if(!isset($_POST['cliente_id'])){
-		$Comunidad->InsertComunidad();
+	if(!isset($_POST['id_curso'])){
+		$ncurso->insert();
 		echo json_encode(array('success'=>'true'));
 	}
 
 	else
 	{
-		$Comunidad->setID($_POST['cliente_id']);
-		$Comunidad->actualizar();
-		echo json_encode(array('success'=>'true'));
+		 $ncurso->setProperty('ID', $_POST['id_curso']);
+		 $ncurso->update();
+		 echo json_encode(array('success'=>'true'));
 		 
 	}
 

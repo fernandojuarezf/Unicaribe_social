@@ -157,11 +157,11 @@
 				return $result;	
 		}
 		
-		function get_asesor()
+		function get_taller()
 		{
 				$connect = new conexion();
 				$conn= $connect->conectar();
-				$query= "SELECT * from asesor";
+				$query= "SELECT * from cursos";
 				if(!$result= pg_query($conn,$query))
 				{
 					echo pg_last_error($conn);
@@ -170,6 +170,21 @@
 				$result = $this->formatoarray($result);
 				pg_close($conn);
 				return $result;	
+		}
+		
+		public function inscribir($id,$id_taller)
+		{
+			$connect = new conexion();
+				$conn= $connect->conectar();
+				$query= "SELECT spinscripcion('$id','$id_taller','1','1')";  
+				$res = pg_query($conn,$query);
+				if (!$res) 
+				{ 
+					pg_query($conn, "ROLLBACK"); 
+				} else 
+				{ 
+					pg_query($conn, "COMMIT"); 	
+				} 
 		}
 		 
 	}

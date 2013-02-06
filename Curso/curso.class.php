@@ -4,7 +4,7 @@
 *Clase correspondiente a la tabla curso.
 *
 */
-	include '../config.php';
+	include "../conexion.php";
 	class curso
 	{
 		//atributos
@@ -16,11 +16,14 @@
 		private $_edad;
 		private $_nivel;
 		private $_cupo_max;
+		private $_id_asesor;
+		private $_id_monitor;
+		private $_conexion;
 		//agregate diff
 		//Se agrega otra diff
 		//propiedades
 		//Se agrega otro otro
-		public function __get($nombre){
+		public function getProperty($nombre){
 			switch ($nombre) {
 				case 'ID':
 					return $this->_id;
@@ -46,10 +49,16 @@
 			    case 'cupo_max':
 			    	return $this->_cupo_max;
 			    	break;
+			    case 'id_asesor':
+			    	return $this->_id_asesor;
+			    	break;
+			    case 'id_monitor':
+			    	return $this->_id_monitor;
+			    	break;
 			}
 		}
 
-		public function __set($nombre,$valor){
+		public function setProperty($nombre,$valor){
 			switch ($nombre) {
 				case 'ID':
 					$this->_id = $valor;					
@@ -75,6 +84,12 @@
 			    case 'cupo_max':
 			    	 $this->_cupo_max  = $valor;
 			    	break;
+			     case 'id_asesor':
+			    	 $this->_id_asesor = $valor;;
+			    	break;
+			    case 'id_monitor':
+			    	 $this->_id_monitor = $valor;;
+			    	break;	
 			}
 
 
@@ -84,14 +99,14 @@
 		public function curso(){}
 
 		//operaciones con la base de datos
-				function update()//funcion para actualizar un registro
+		function update()//funcion para actualizar un registro
 		{
 			include '../config.php';
 			$conn = pg_connect("host='$databasehost' port='$databaseport' dbname='$databasename' user='$databaseuser' password='$databasepass'");
 			if ($conn) 
 			{
-			$query= "select spsetcurso('$this->_id','$this->_nombre','$this->_status','$this->_amaterno','$this->_hora_inicio',
-										'$this->_hora_fin','$this->_edad', '$this->_nivel', '$this->_cupo_max')";
+			$query= "select spupdatecurso('$this->_curso', '$this->_status','$this->_hora_inicio','$this->_hora_fin',
+										'$this->_edad', '$this->_nivel', '$this->_cupo_max', '$this->_id_asesor', '$this->_id_monitor', '$this->_id')";
 			$res = pg_query($conn,$query);
 
 				if (!$res) 
@@ -117,8 +132,11 @@
 			or die ("Ocurrio un error en la conexion " . pg_last_error($conn)); 
 			if($conn)
 			{
-			$query= "select spsetcurso('$this->_id','$this->_nombre','$this->_status','$this->_amaterno','$this->_hora_inicio',
-										'$this->_hora_fin','$this->_edad', '$this->_nivel', '$this->_cupo_max')";
+				 $id_monitor = 4;
+				 $id_asesor = 29;
+				 $this->_id = null;
+			$query= "select spsetcurso('$this->_curso', '$this->_status','$this->_hora_inicio','$this->_hora_fin',
+										'$this->_edad', '$this->_nivel', '$this->_cupo_max', '$this->_id_asesor', '$this->_id_monitor')";
 			$res = pg_query($conn,$query);
 
 			if (!$res) 
@@ -152,8 +170,9 @@
 												,hora_fin
 												,edad
 												,nivel
-												,cupo_max
-										FROM cursos");
+												,cupo_max												
+										FROM cursos
+										ORDER BY curso ASC");
 
 			}
 			else
@@ -162,6 +181,7 @@
 				exit;
 			}
 		}
+
 
 		function  ObtenerCursoID($id)
 		{
@@ -178,8 +198,10 @@
 												,edad
 												,nivel
 												,cupo_max
-										FROM comunidad
-										WHERE id=$id");
+												,id_monitor
+												,id_asesor
+										FROM cursos
+										WHERE id_curso=$id");
 
 			}
 			else
@@ -189,6 +211,21 @@
 			}
 		}
 
+		public function ObtenerMonitor()
+		{
+			 $connect = new conexion();
+			 $conn = $connect->conectar();
+			 return pg_query($conn,"select id_monitor, (nombre || ' '  || apellido_paterno || ' ' || apellido_materno)AS nameMonitor from monitor");
+
+		}
+
+		public function ObtenerAsesor()
+		{
+			 $connect = new conexion();
+			 $conn = $connect->conectar();
+			 return pg_query($conn,"select id_asesor, (nombre || ' '  || apellido_paterno || ' ' || apellido_materno)AS nameMonitor from asesor");
+
+		}
 	}
 
 ?>

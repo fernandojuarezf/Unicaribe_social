@@ -1,4 +1,12 @@
-
+<html >
+<head>
+<title>Inscripcion</title>
+<link href="../css/bootstrap.min.css" rel="stylesheet"> 
+ <link href="../css/m-styles.min.css" rel="stylesheet"> 
+ <link href="../css/m-buttons.min.css" rel="stylesheet"> 
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
 <?php
 
 
@@ -9,16 +17,16 @@
 		$consulta = $objComunidad->mostrar_comunidad($_GET['id']);
 		$upComunidad = pg_fetch_array($consulta);
 	?>
-	<form id="frmUpComunidad" name="frmClienteActualizar" method="post" action="update.php" >
-    	<input type="hidden" name="cliente_id" id="id_comunidad" value="<?php echo $upComunidad['id_comunidad']?>" />
+    
+	<form id="frmUpComunidad" name="frmInscripcion" method="post" action="inscribir.php" >
+    	<input type="hidden" name="id_comunidad" id="id_comunidad" value="<?php echo $upComunidad['id_comunidad']?>" />
        
       <div id="messageBox"><label id="message"/> INSCRIPCION</div>  
 
    <?php
 $pasesor= new Comunidad();
-$asesor= $pasesor->get_asesor();
-$pmonitor = new Comunidad();
-$monitor = $pmonitor->get_monitor();
+$asesor= $pasesor->get_taller();
+
 ?>
 
 <table >
@@ -53,34 +61,26 @@ $monitor = $pmonitor->get_monitor();
 	</tr>
 
  	<tr>
-
-    <select id="select_asesor">
-    
-    <option value="">Elige asesor</option>
-    <?php foreach($asesor as $t_asesor):?>	<option value="<?php echo $t_asesor['id_asesor']; ?>">
-      <?php echo $t_asesor['apellido_paterno']; 	 echo "  " ;
-	 echo $t_asesor['apellido_materno']; 	 echo "  /   "; echo $t_asesor['nombre']; ?>
+    <td>
+    <label>Elige taller:</label>
+    </td>
+	<td>
+    <select name="select_taller">
+    <option value="">Seleccionar..</option>
+    <?php foreach($asesor as $t_asesor):?>	<option value="<?php echo $t_asesor['id_curso']; ?>">
+      <?php echo $t_asesor['curso']; ?>
      </option>
     <?php endforeach; ?>
 	</select>
-    
-     <select id="select_monitor">
-     
-    <option value="">Elige monitor</option>
-    <?php foreach($monitor as $t_monitor):?>	<option value="<?php echo $t_monitor['id_monitor']; ?>">
-     <?php echo $t_monitor['apellido_paterno']; 	 echo "  " ;
-	 echo $t_monitor['apellido_materno']; 	 echo "  /   "; echo $t_monitor['nombre']; ?>
-     </option>
-    <?php endforeach; ?>
-	</select>
+    </td>
     
     </tr>
 	<tr>
 		<td>
-			<input type="submit" name="submit" id="button" value="Enviar"  class="m-btn blue rnd" onclick="Cancelar()" />
+			<input type="submit" name="submit" id="button" value="Enviar"  class="m-btn blue rnd" onClick="Cancelar()" />
 		</td>
 		<td>
-			 <input type="button" class="m-btn red rnd" name="cancelar" id="cancelar" value="Cancelar" onclick="Cancelar()" />
+			  <input type="button" class="m-btn red rnd" name="cancelar" id="cancelar" value="Cancelar" onClick="Cancelar()" />
 		</td>
 		<td>
 		
@@ -144,3 +144,5 @@ $(document).ready(function(){
 
 });
 </script>
+</body>
+</html>

@@ -9,19 +9,29 @@
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
+
+	<?php
+
+	include "curso.class.php";
+	$objCurso=new Curso;
+	$consulta=$objCurso->ObtenerMonitor();
+	$consultaAsesor = $objCurso->ObtenerAsesor();
+	?>
+
+
 	 <div id="messageBox"><label id="message"/></div> 
-<form id="frmNewCumunidad" name="frmClienteNuevo" method="post" action="save_comunidad.php" >
+<form id="frmNewCumunidad" name="frmClienteNuevo" method="post" action="save_curso.php" >
  	
 	<table >
 	<tr>
 		<td>
-			<label>Nombre</label>
+			<label>Nombre:</label>
 		</td>
 		<td>
-			<input type="text" name="nombre" required="required">
+			<input type="text" name="curso" required="required">
 		</td>
 		<td>
-			<label>Edad</label>
+			<label>Edad:</label>
 		</td>
 		<td>
 			<input type="text" name="edad" > 
@@ -45,35 +55,67 @@
 	
 	<tr>
 		<td>
-			<label>Fecha de Nacimiento: </label>
+			<label>Hora inicio: </label>
+		</td>
+		<td> 
+			<input type="text" name="hora_inicio"  required="required"> 
 		</td>
 		<td>
-			<input type="text" name="fnacimiento"  required="required"> 
+			<label>Hora fin: </label>
 		</td>
 		<td>
-			<label>Tutor: </label>
-		</td>
-		<td>
-			<input type="text" name="tutor" required="required">  
+			<input type="text" name="hora_fin" required="required">  
 		</td>
 	</tr>
-	
 	<tr>
 		<td>
-			
-		</td>	
-	</tr>
+			Monitor:
+		</td>
+		<td>
+			<select name="selectMonitor">
+            <option value="">--- Select ---</option>
+			  <?php
+               
+            while( $curso = pg_fetch_array($consulta) ){
+                ?>
+                    <option value="<?php echo $curso['id_monitor'] ?>"> <?php echo $curso[1]?> </option>
+                   
+                <?php
+                }
+                ?>
+            </select>
+		</td>
 
+		<td>
+			Asesor:
+		</td>
+		<td>
+			<select name="selectAsesor">
+            <option value="">--- Select ---</option>
+			  <?php
+               
+            while( $curso = pg_fetch_array($consultaAsesor) ){
+                ?>
+                    <option value="<?php echo $curso['id_asesor'] ?>"> <?php echo $curso[1]?> </option>
+                   
+                <?php
+                }
+                ?>
+            </select>
+		</td>
+	</tr>
 
 	<tr>
 		<td>
 			 <label>Observaciones:
 				</label>
 		</td>
-		<td colspan="3">
+		<td >
 			<textarea rows="5" cols="20" name="note"  ></textarea> 
 		</td>
-		
+		<td>
+			<input type="checkbox" name="status" value="1"> Activo
+		</td>
 	</tr>
 	<tr>
 		<td>
