@@ -14,7 +14,7 @@
     <div id="formulario" style="display:none;">
     </div>
     <div id="tabla">
-    <?php include "panel_comunidad.php" ?>
+    <?php include "panel_salon.php" ?>
     </div>
 </div>
 </body>

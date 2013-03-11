@@ -9,7 +9,7 @@
 </head>
 
 <body>
-<center><p><label>COMUNIDAD</label></p></center>
+<center><p><label>MONITOR</label></p></center>
 <div id="contenedor">
     <div id="formulario" style="display:none;">
     </div>

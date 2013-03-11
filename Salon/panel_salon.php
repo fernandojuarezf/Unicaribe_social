@@ -18,7 +18,7 @@ $consulta=$objCliente->get_people();
 ?>
 
 
-<span id="nuevo"><a href="new_comunidad.php" class="m-btn"><i class="icon-plus"></i>Nuevo</a></span>
+<span id="nuevo"><a href="new_salon.php" class="m-btn"><i class="icon-plus"></i>Nuevo</a></span>
 	<table>
    		<tr class="HeaderStyle">
             <th>ID </th>
@@ -41,9 +41,9 @@ if($consulta) {
 			  <td><?php echo $cliente['equipamiento'] ?></td>
               
 			  <td><span class="modi">
-              <a href="update_comunidad.php?id=<?php echo $cliente['id_salon'] ?>">
+              <a href="update_salon.php?id=<?php echo $cliente['id_salon'] ?>">
               <img src="../img/database_edit.png" title="Editar" 
-              	alt="Editar" />      </a></span><i>Editar</i>
+              	alt="Editar" />      </a></span>
                 </td>
                 
             
@@ -82,7 +82,7 @@ $(document).ready(function(){
 		$("#tabla").hide();
 		$.ajax({
 			type: "GET",
-			url: 'new_comunidad.php',
+			url: 'new_salon.php',
 			success: function(datos){
 				$("#formulario").html(datos);
 			}

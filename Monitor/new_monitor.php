@@ -10,7 +10,7 @@
 </head>
 <body>
 	 <div id="messageBox"><label id="message"/></div> 
-<form id="frmNewCumunidad" name="frmClienteNuevo" method="post" action="save_comunidad.php" >
+<form id="frmNewCumunidad" name="frmClienteNuevo" method="post" action="insert.php" >
  	
 	<table >
 	<tr>
@@ -18,14 +18,12 @@
 			<label>Nombre</label>
 		</td>
 		<td>
-			<input type="text" name="nombre" required="required">
+			<input type="text" name="nombre"  required="required" >
 		</td>
 		<td>
 			<label>Fotografa</label>
 		</td>
-		<td>
-			#<input type="text" name="foto" > 
-		</td>
+		
 	</tr>	
 	
 	<tr>
@@ -36,7 +34,7 @@
 			<input type="text" name="apaterno" required="required"> 
 		</td>
 		<td>
-			<label>Apellido Paterno: </label> 
+			<label>Apellido Materno: </label> 
 		</td>
 		<td>
 			<input type="text" name="amaterno" required="required"> 
@@ -45,121 +43,64 @@
 	
 	<tr>
 		<td>
-			<label>Fecha de Nacimiento: </label>
+			<label>Matricula: </label>
 		</td>
 		<td>
-			<input type="text" name="fnacimiento"  required="required"> 
-		</td>
-		<td>
-			<label>Tutor: </label>
-		</td>
-		<td>
-			<input type="text" name="tutor" required="required">  
-		</td>
-	</tr>
-	
-	<tr>
-		<td>
-			<label>Pariente:  </label> 
-		</td>
-		<td>
-			<input type="text" name="pariente" required="required">
-		</td>
-		<td>
-			<label>Ubicacion: </label> 
-		</td>
-		<td>
-			<input type="text" name="ubicacion" required="required"> 
-		</td>
-	</tr>
-	
-	<tr>
-		<td>
-			<label>Manzana: </label>
-		</td>
-		<td>
-			<input type="text" name="manzana" required="required">  
-		</td>
-		<td>
-			<label>Lote:  </label>
-		</td>
-		<td>
-			<input type="text" name="lote" required="required"> 
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<label>Calle: </label>
-		</td>
-		<td>
-			<input type="text" name="calle" required="required"> 
-		</td>
-		<td>
-			<label>No. de Casa: </label>
-		</td>
-		<td>
-			<input type="text" name="NoCasa" required="required"> 
-		</td>
-	</tr>
-	
-	<tr>
-		<td>
-			<label>Tel. de Casa: </label>
-		</td>
-		<td>
-			<input type="text" name="tel_casa" required="required">  
-		</td>
-		<td>
-			<label>Telefono particular:  </label>
-		</td>
-		<td>
-			<input type="text" name="te_part" required="required"> 
-		</td>
-	</tr>
-	
-	<tr>
-		<td>
-			<label>Telefono tutor:  </label> 
-		</td>
-		<td>
-			<input type="text" name="tel_tuto" required="required">
-		</td>
-		<td>
-			<label>Correo electronico: </label> 
-		</td>
-		<td>
-			<input type="text" name="correo" required="required"> 
-		</td>
-	</tr>
-	
-	<tr>
-		<td>
-			<label>Escolaridad: </label>
-		</td>
-		<td>
-			<input type="text" name="escolaridad" required="required">  
+			<input type="text" name="matricula"  required="required"> 
 		</td>
 		<td>
 			<label>Sexo: </label>
 		</td>
 		<td>
 		<select class="m-wrap" name="sexo">
-		<option value="1">Masculino</option>
-		<option value="0">Femenino</option>
+		<option value="1">HOMBRE</option>
+		<option value="0">MUJER</option>
 		</select>
 			
-		</td>
+	  </td>
+	
 	</tr>
+	
 	<tr>
 		<td>
-			 <label>Observaciones:
-				</label>
+			<label>PROGRAMA EDUCATIVO:  </label> 
 		</td>
-		<td colspan="3">
-			<textarea rows="5" cols="20" name="note"  ></textarea> 
+		<td>
+		<select class="m-wrap" name="p_educativo">
+		<option value="0">ING TELEMATICA</option>
+		<option value="1">ING INDUSTRIAL</option>
+        <option value="2">NEGOCIOS INTERNACIONALES</option>
+		<option value="3">INOVACION EMPRESARIAL</option>
+        <option value="4">GASTRONOMIA</option>
+		<option value="5">TURISMO</option>
+        <option value="6">LOGISTICA</option>
+		<option value="7">ING AMBIENTAL</option>
+		</select>
+			
+	  </td>
+		<td>
+			<label>Tel Casa: </label> 
 		</td>
-		
+		<td>
+			<input type="text" name="tel_casa" required="required"> 
+		</td>
 	</tr>
+	
+	<tr>
+		<td>
+			<label>Tel Cel: </label>
+		</td>
+		<td>
+			<input type="text" name="tel_cel" required="required">  
+		</td>
+		<td>
+			<label>Correo:  </label>
+		</td>
+		<td>
+			<input type="text" name="correo" required="required"> 
+		</td>
+	</tr>
+	
 	<tr>
 		<td>
 			<input type="submit" name="submit" id="button" value="Enviar"  class="m-btn blue rnd"/>
@@ -174,9 +115,7 @@
 			
 		</td>
 	</tr>
-	</table>	
-	
-
+	</table>
 </form>
 
 <script type="text/javascript">
