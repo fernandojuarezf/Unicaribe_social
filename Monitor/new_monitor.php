@@ -21,10 +21,10 @@
 			<input type="text" name="nombre" required="required">
 		</td>
 		<td>
-			<label>Fotografía</label>
+			<label>Fotografa</label>
 		</td>
 		<td>
-			<input type="text" name="foto" > 
+			#<input type="text" name="foto" > 
 		</td>
 	</tr>	
 	
@@ -165,7 +165,7 @@
 			<input type="submit" name="submit" id="button" value="Enviar"  class="m-btn blue rnd"/>
 		</td>
 		<td>
-			 <input type="button" class="m-btn red rnd" name="cancelar" id="cancelar" value="Cancelar" onclick="Cancelar()" />
+			 <input type="button" class="m-btn red rnd" name="cancelar" id="cancelar" value="Cancelar" onClick="Cancelar()" />
 		</td>
 		<td>
 		

@@ -9,12 +9,12 @@
 </head>
 
 <body>
-<center><p><label>COMUNIDAD</label></p></center>
+<center><p><label>ASESOR</label></p></center>
 <div id="contenedor">
     <div id="formulario" style="display:none;">
     </div>
     <div id="tabla">
-    <?php include "panel_comunidad.php" ?>
+    <?php include "panel_asesor.php" ?>
     </div>
 </div>
 </body>

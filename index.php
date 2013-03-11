@@ -74,8 +74,8 @@ body {
   <!--<div align="left"><img src="imagenes/Banner_UT_Cancun.png" width="894" height="141"/></div>-->
   <ul id="simple-menu">
 <li><a class="m-btn blue-stripe"  href="index.php">Inicio</a></li>
-    <li ><a  class="m-btn blue-stripe" onClick="Verpagina('Asesor/asesorprincipal.php');">Asesor</a></li>
-   <li><a class="m-btn blue-stripe"  onClick="Verpagina('Monitor/mview_comunidad.php');" >Monitor</a></li>
+    <li ><a  class="m-btn blue-stripe" onClick="Verpagina('Asesor/mview_asesor.php');">Asesor</a></li>
+   <li><a class="m-btn blue-stripe"  onClick="Verpagina('Monitor/mview_monitor.php');" >Monitor</a></li>
     <li><a class="m-btn blue-stripe"  onclick= "Verpagina('Comunidad/mview_comunidad.php')" >Comunidad</a></li>
     <li><a class="m-btn blue-stripe"  onclick= "Verpagina('Salon/mview_comunidad.php')" >Salon</a></li>
     <li><a class="m-btn blue-stripe"  onclick= "Verpagina('Curso/mview_curso.php')">Taller</a></li>   

@@ -7,24 +7,13 @@
 		private $_nombre;
 		private $_apaterno;
 		private $_amaterno;
-		private $_fecha_nacimiento;
-		private $_sexo;
-		private $_tutor;
-		private $_pariente;
-		private $_edad;
-		
-		private $_ubicacion;
-		private $_manzana;
-		private $_lote;
-		private $_calle;
-		private $_num_casa;
-		
+		private $_matricula;
+		private $_sexo;	
+		private $_p_educativo;
 		private $_tel_casa;
-		private $_tel_personal;
-		private $_tel_tutor;
+		private $_tel_cel;
 		private $_correo;
-		private $_escolaridad;
-		private $_observaciones;
+
 		
 		
 		

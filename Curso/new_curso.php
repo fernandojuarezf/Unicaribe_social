@@ -3,6 +3,7 @@
 <html >
 <head>
 <title>Guardar asesor</title>
+<link rel="stylesheet" type="text/css" media="screen" href="css/screen.css" />
 <link href="../css/bootstrap.min.css" rel="stylesheet"> 
  <link href="../css/m-styles.min.css" rel="stylesheet"> 
  <link href="../css/m-buttons.min.css" rel="stylesheet"> 
@@ -28,7 +29,7 @@
 			<label>Nombre:</label>
 		</td>
 		<td>
-			<input type="text" name="curso" required="required">
+			<input type="text" name="curso">
 		</td>
 		<td>
 			<label>Edad:</label>
@@ -43,13 +44,13 @@
 			<label>Nivel: </label>
 		</td>
 		<td>
-			<input type="text" name="nivel" required="required"> 
+			<input type="text" name="nivel" > 
 		</td>
 		<td>
 			<label>Cupo Maximo: </label> 
 		</td>
 		<td>
-			<input type="text" name="cupo_max" required="required"> 
+			<input type="text" name="cupo_max" > 
 		</td>
 	</tr>
 	
@@ -58,13 +59,13 @@
 			<label>Hora inicio: </label>
 		</td>
 		<td> 
-			<input type="text" name="hora_inicio"  required="required"> 
+			<input type="text" name="hora_inicio"  > 
 		</td>
 		<td>
 			<label>Hora fin: </label>
 		</td>
 		<td>
-			<input type="text" name="hora_fin" required="required">  
+			<input type="text" name="hora_fin" >  
 		</td>
 	</tr>
 	<tr>
@@ -135,12 +136,36 @@
 	
 
 </form>
+<script src="../js/jquery.validate.min.js" type="text/javascript"></script>
+<script src="../js/messages_es.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 $(document).ready(function(){
+	$("#frmNewCumunidad").validate({
+		rules: {
+			curso: {
+				required: true,
+				maxlength: 50,
+				minlength: 5
+			},
+			edad: {
+				required: true,
+				number: true
+			},
+			hora_inicio: {
+				required: false,				
+				minlength: 5
+			},
+			hora_fin: {
+				required: true,
+				maxlength: 5
+			}
+		}
+	});
 
     $('#frmNewCumunidad').submit( function() {
-
+        if(!$("#frmNewCumunidad").valid())
+        	return false;
         $.ajax({
             url     : $(this).attr('action'),
             type    : $(this).attr('method'),
