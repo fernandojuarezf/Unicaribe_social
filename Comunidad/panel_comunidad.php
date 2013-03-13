@@ -27,8 +27,9 @@ $consulta=$objCliente->get_people();
     		<th>Apellido Paterno  </th>
     		<th>Apellido Materno  </th>
             <th>Fecha Nacimiento  </th>
-            <th></th>
-            <th></th>
+            <th>Editar</th>
+            <th>Inscribir</th>
+            <th>Eliminar</th>
         </tr>
         
 <?php
@@ -53,7 +54,7 @@ if($consulta) {
 			  
               <td>
               <a onClick="EliminarDato(<?php echo $cliente['id_comunidad'] ?>); return false" href="eliminar.php?id=
-			  <?php echo $cliente['id_comunidad'] ?>"  class="m-btn mini red"><i class="icon-trash"></i> Eliminar</a></td>
+			  <?php echo $cliente['id_comunidad'] ?>"  class="m-btn mini red"><i class="icon-trash"></i> </a></td>
 		  </tr>
 	<?php
 	}

@@ -26,8 +26,8 @@ $consulta=$objCurso->ObtenerCurso();
     		<th>Edad</th>
     		<th>Nivel </th>
     		<th>Cupo Maximo</th>           
-            <th></th>
-            <th></th>
+            <th>Editar</th>
+            <th>Eliminar</th>
         </tr>
         
 <?php
@@ -44,7 +44,7 @@ if($consulta) {
 			  <td><span class="modi">
               <a href="update_curso.php?id=<?php echo $cliente['id_curso'] ?>"><img src="../img/database_edit.png" title="Editar" 
               	alt="Editar" />      </a></span></td>
-			  <td><a onClick="EliminarDato(<?php echo $cliente['id_curso'] ?>); return false" href="eliminar.php?id=<?php echo $cliente['id_curso'] ?>"class="m-btn mini red"><i class="icon-trash"></i> Eliminar</a></td>
+			  <td><a onClick="EliminarDato(<?php echo $cliente['id_curso'] ?>); return false" href="eliminar.php?id=<?php echo $cliente['id_curso'] ?>"class="m-btn mini red"><i class="icon-trash"></i></a></td>
 		  </tr>
 	<?php
 	}

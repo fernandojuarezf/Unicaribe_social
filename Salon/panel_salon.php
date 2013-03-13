@@ -25,8 +25,8 @@ $consulta=$objCliente->get_people();
    			<th>Salon  </th>
     		<th>Ubicacion   </th>
     		<th>Equipamiento  </th>
-           <th>  </th>
-           <th> </th>
+            <th>Editar</th>
+            <th>Eliminar</th>
         </tr>
         
 <?php
@@ -50,7 +50,7 @@ if($consulta) {
                 
 			  <td><a onClick="EliminarDato(<?php echo $cliente['id_salon'] ?>); 
               return false" href="eliminar.php?id=<?php echo $cliente['id_salon'] ?>"class="m-btn mini red"><i class="icon-trash">
-              </i> Eliminar</a></td>
+              </i> </a></td>
 		  </tr>
 	<?php
 	}

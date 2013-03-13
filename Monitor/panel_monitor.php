@@ -27,8 +27,8 @@ $consulta=$objCliente->get_people();
     		<th>Apellido Materno  </th>
             <th>Correo  </th>
             <th>Programa Educativo </th>
-            <th></th>
-            <th></th>
+            <th>Editar</th>
+            <th>Eliminar</th>
         </tr>
         
 <?php
@@ -56,7 +56,7 @@ if($consulta) {
               <a href="update_monitor.php?id=<?php echo $cliente['id_monitor'] ?>"><img src="../img/database_edit.png" title="Editar" 
               	alt="Editar" />      </a></span></td>
 			  <td><a onClick="EliminarDato(<?php echo $cliente['id_monitor'] ?>);
-               return false" href="eliminar.php?id=<?php echo $cliente['id_monitor'] ?>"class="m-btn mini red"><i class="icon-trash"></i> Eliminar</a></td>
+               return false" href="eliminar.php?id=<?php echo $cliente['id_monitor'] ?>"class="m-btn mini red"><i class="icon-trash"></i></a></td>
 		  </tr>
 	<?php
 	}
