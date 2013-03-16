@@ -1,10 +1,19 @@
-
-<!DOCTYPE HTML>
-<html >
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
 <head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<style type="text/css" title="currentStyle">
+	@import "../css/demo_page.css";
+	@import "../css/jquery.dataTables.css";
+	</style>
 <link href="../css/m-icons.min.css" rel="stylesheet"> 
 <link href="../css/m-buttons.min.css" rel="stylesheet"> 
 <link href="../css/styles.css" rel="stylesheet"> 
+
+
+	<script type="text/javascript" language="javascript" src="../js/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" language="javascript" src="../js/jquery.dataTables.js"></script>
+
 </head>
 <body>
 
@@ -19,7 +28,8 @@ $consulta=$objCliente->get_people();
 
 
 <span id="nuevo"><a href="new_comunidad.php" class="m-btn"><i class="icon-plus"></i>Nuevo</a></span>
-	<table>
+	<table cellpadding="0" cellspacing="0" border="0" class="display" id="example" width="80%">
+   		<thead>
    		<tr class="HeaderStyle">
             <th>ID </th>
    			<th>Fotografia  </th>
@@ -31,6 +41,8 @@ $consulta=$objCliente->get_people();
             <th>Inscribir</th>
             <th>Eliminar</th>
         </tr>
+        </thead>
+        <tbody>
         
 <?php
 if($consulta) {
@@ -60,12 +72,18 @@ if($consulta) {
 	}
 }
 ?>
-
+</tbody>
     </table>
 
     <script type="text/javascript">
 
 $(document).ready(function(){
+
+	 $('#example').dataTable( {
+            "oLanguage": {
+                "sUrl": "../js/dataTables.spanish.txt"
+            }
+        } );
 	// mostrar formulario de actualizar datos 
 	$("table tr .modi a").click(function(){
 		$('#tabla').hide();
