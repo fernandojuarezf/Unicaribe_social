@@ -54,13 +54,13 @@
 			<label>Hora Inicio: </label>
 		</td>
 		<td>
-			<input type="text"  name="hora_inicio"  value="<?php echo date("h:i A.", strtotime($upComunidad['hora_inicio'])) ?>" >
+			<input type="text"  name="hora_inicio"  value="<?php echo date("H:i", strtotime($upComunidad['hora_inicio'])) ?>" >
 		</td>
 		<td>
 			<label>Hora fin: </label>
 		</td>
 		<td>
-			<input type="text" name="hora_fin"  value="<?php echo date("h:i A.", strtotime($upComunidad['hora_fin'])) ?>" >  
+			<input type="text" name="hora_fin"  value="<?php echo date("H:i", strtotime($upComunidad['hora_fin'])) ?>" >  
 		</td>
 	</tr>
 		<tr>
@@ -87,7 +87,7 @@
 			Asesor:
 		</td>
 		<td>
-			<select id="selectAsesor">
+			<select id="selectAsesor" name="selectAsesor">
             <option value="">--- Select ---</option>
 			  <?php
                
@@ -110,7 +110,7 @@
 			<textarea rows="5" cols="20" name="note"  ><?php echo $upComunidad['observaciones'] ?></textarea> 
 		</td>
 		<td>
-			<input type="checkbox" name="status" value="0"  <?php if ($upComunidad['status'] == '1') echo 'checked'; ?>> Activo
+			<input id="status" type="checkbox" name="status" value="non"  <?php if ($upComunidad['status'] == '1') echo 'checked'; ?>> Activo
 		</td>
 	</tr>
 	
@@ -141,12 +141,12 @@
 $(document).ready(function(e){
 
 
-$('[name="status"]').click(function(){
+$("#status").click(function(){
  if($(this).is(':checked')) {
- 	$('[name="status"]').val('1');
+ 	$("#status").val('yes');
  }
  else{
-$('[name="status"]').val('0');
+$("#status").val('non');
  }
 });
     $('form[name=frmUpComunidad]').submit( function() {

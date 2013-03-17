@@ -105,7 +105,7 @@
 			$conn = pg_connect("host='$databasehost' port='$databaseport' dbname='$databasename' user='$databaseuser' password='$databasepass'");
 			if ($conn) 
 			{
-			$query= "select spupdatecurso('$this->_curso', '$this->_status','$this->_hora_inicio','$this->_hora_fin',
+			$query= "select spUpdateCurso('$this->_curso', '$this->_status','$this->_hora_inicio','$this->_hora_fin',
 										'$this->_edad', '$this->_nivel', '$this->_cupo_max', '$this->_id_asesor', '$this->_id_monitor', '$this->_id')";
 			$res = pg_query($conn,$query);
 

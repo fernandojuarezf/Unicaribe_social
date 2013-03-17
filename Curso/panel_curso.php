@@ -1,7 +1,11 @@
-
-<!DOCTYPE HTML>
-<html >
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
 <head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<style type="text/css" title="currentStyle">
+	@import "../css/demo_page.css";
+	@import "../css/jquery.dataTables.css";
+	</style>
 <link href="../css/m-icons.min.css" rel="stylesheet"> 
 <link href="../css/m-buttons.min.css" rel="stylesheet"> 
 <link href="../css/styles.css" rel="stylesheet"> 
@@ -18,7 +22,7 @@ $consulta=$objCurso->ObtenerCurso();
 ?>
 
 
-<span id="nuevo"><a href="new_comunidad.php" class="m-btn"><i class="icon-plus"></i>Nuevo</a></span>
+<span id="nuevo"><a href="new_curso.php" class="m-btn"><i class="icon-plus"></i>Nuevo</a></span>
 	<table>
    		<tr class="HeaderStyle">
             <th>ID</th>

@@ -419,7 +419,7 @@ body{
     font-family:Arial, Helvetica, sans-serif; 
     font-size:13px;
 }
-.info, .success, .warning, .error, .validation {
+.info, .success, .warning, .validation {
     border: 1px solid;
     margin: 10px 0px;
     padding:15px 10px 15px 50px;
@@ -444,13 +444,25 @@ body{
     background-color: #FEEFB3;
    /* background-image: url('warning.png');*/
 }
-.error {
+/*.error {*/
     /*color: #D8000C;
     background-color: #FFBABA;
     background-image: url('error.png');*/
-    font-family: "Segoe UI",Helvetica,Arial,sans-serif;
+/*    font-family: "Segoe UI",Helvetica,Arial,sans-serif;
     font-size: 12px;
-}
+}*/
+
+label.error { 
+        color: red;
+    font-style: italic;
+    font-size: .9em;
+           }
+label.error { float: none; 
+        color: red; 
+        padding-left: .5em; 
+        vertical-align: top;
+        margin: auto }
+
 
 #messageBox
 { display: none; }
