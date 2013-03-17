@@ -155,8 +155,8 @@
 		</td>
 		<td>
 		<select class="m-wrap" name="sexo">
-		<option value="1">Masculino</option>
-		<option value="0">Femenino</option>
+		<option value="0">Mujer</option>
+		<option value="1">Hombre</option>
 		</select>
 			
 		</td>
