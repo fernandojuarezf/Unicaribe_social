@@ -6,7 +6,7 @@ try
 	
 	$ncurso = new curso();
 	$estatus = 0;
-	if(isset( $_POST['status']) &&	$_POST['status'] == 'yes')
+	if(isset( $_POST['status']) )
 	{
 		$estatus = 1;
 	}
@@ -21,6 +21,7 @@ try
 	$ncurso->setProperty('cupo_max', $_POST['cupo_max'] );
 	$ncurso->setProperty('id_monitor', $_POST['selectMonitor'] );
 	$ncurso->setProperty('id_asesor', $_POST['selectAsesor'] );
+	$ncurso->setProperty('notas', $_POST['note']);
 
 
 	if(!isset($_POST['id_curso'])){

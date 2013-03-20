@@ -6,13 +6,17 @@
 	@import "../css/demo_page.css";
 	@import "../css/jquery.dataTables.css";
 	</style>
+	<link href="../css/bootstrap.min.css" rel="stylesheet"> 
+	<link href="../css/m-styles.min.css" rel="stylesheet"> 
+
 	<link href="../css/m-icons.min.css" rel="stylesheet"> 
 	<link href="../css/m-buttons.min.css" rel="stylesheet"> 
-	<link href="../css/styles.css" rel="stylesheet"> 
 
 
 	<script type="text/javascript" language="javascript" src="../js/jquery-1.6.4.min.js"></script>
 	<script type="text/javascript" language="javascript" src="../js/jquery.dataTables.js"></script>
+	<script src="../js/jquery.validate.min.js" type="text/javascript"></script>
+	<script src="../js/messages_es.js" type="text/javascript"></script>
 
 </head>
 <body>
@@ -34,10 +38,10 @@
 
 	<span id="nuevo"><a href="new_comunidad.php" class="m-btn"><i class="icon-plus"></i>Nuevo</a></span>
 	Taller: <select name="select_taller">
-		<option value="">Seleccionar..</option>
-		<?php foreach($asesor as $t_asesor):?>	<option value="<?php echo $t_asesor['id_curso']; ?>">
-		<?php echo $t_asesor['curso']; ?>
-	</option>
+	<option value="">Seleccionar..</option>
+	<?php foreach($asesor as $t_asesor):?>	<option value="<?php echo $t_asesor['id_curso']; ?>">
+	<?php echo $t_asesor['curso']; ?>
+</option>
 <?php endforeach; ?>
 </select>
 <table cellpadding="0" cellspacing="0" border="0" class="display" id="example" width="90%">
@@ -89,13 +93,14 @@
 
 						<script type="text/javascript">
 
-						$(document).ready(function(){
+		$(document).ready(function(){
 
 							$('#example').dataTable( {
 								"oLanguage": {
 									"sUrl": "../js/dataTables.spanish.txt"
 								}
 							} );
+							
 	// mostrar formulario de actualizar datos 
 	$("table tr .modi a").click(function(){
 		$('#tabla').hide();

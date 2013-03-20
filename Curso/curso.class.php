@@ -19,6 +19,7 @@
 		private $_id_asesor;
 		private $_id_monitor;
 		private $_conexion;
+		private $_note;
 		//agregate diff
 		//Se agrega otra diff
 		//propiedades
@@ -55,6 +56,9 @@
 			    case 'id_monitor':
 			    	return $this->_id_monitor;
 			    	break;
+			    case 'notas':
+			    	return $this->_note;
+			    	break;
 			}
 		}
 
@@ -85,11 +89,14 @@
 			    	 $this->_cupo_max  = $valor;
 			    	break;
 			     case 'id_asesor':
-			    	 $this->_id_asesor = $valor;;
+			    	 $this->_id_asesor = $valor;
 			    	break;
 			    case 'id_monitor':
-			    	 $this->_id_monitor = $valor;;
+			    	 $this->_id_monitor = $valor;
 			    	break;	
+			    case 'notas':
+			    	$this->_note = $valor;
+			    	break;
 			}
 
 
@@ -106,7 +113,7 @@
 			if ($conn) 
 			{
 			$query= "select spUpdateCurso('$this->_curso', '$this->_status','$this->_hora_inicio','$this->_hora_fin',
-										'$this->_edad', '$this->_nivel', '$this->_cupo_max', '$this->_id_asesor', '$this->_id_monitor', '$this->_id')";
+										'$this->_edad', '$this->_nivel', '$this->_cupo_max', '$this->_id_asesor', '$this->_id_monitor', '$this->_note'  ,'$this->_id')";
 			$res = pg_query($conn,$query);
 
 				if (!$res) 
@@ -132,11 +139,9 @@
 			or die ("Ocurrio un error en la conexion " . pg_last_error($conn)); 
 			if($conn)
 			{
-				 $id_monitor = 4;
-				 $id_asesor = 29;
-				 $this->_id = null;
+				
 			$query= "select spsetcurso('$this->_curso', '$this->_status','$this->_hora_inicio','$this->_hora_fin',
-										'$this->_edad', '$this->_nivel', '$this->_cupo_max', '$this->_id_asesor', '$this->_id_monitor')";
+										'$this->_edad', '$this->_nivel', '$this->_cupo_max', '$this->_id_asesor', '$this->_id_monitor' , '$this->_note')";
 			$res = pg_query($conn,$query);
 
 			if (!$res) 
@@ -200,6 +205,7 @@
 												,cupo_max
 												,id_monitor
 												,id_asesor
+												,note
 										FROM cursos
 										WHERE id_curso=$id");
 

@@ -51,7 +51,7 @@
 			<label>Fecha de Nacimiento: </label>
 		</td>
 		<td>
-			<input type="text" id="birth" name="fecha_nacimiento"  value="<?php echo date('d/m/Y', strtotime($upComunidad['fecha_nacimiento'])) ?>" >
+			<input type="text" id="fecha_nacimiento" name="fecha_nacimiento"  value="<?php echo date('d/m/Y', strtotime($upComunidad['fecha_nacimiento'])) ?>" >
 		</td>
 		<td>
 			<label>Tutor: </label>
@@ -175,7 +175,7 @@
 	</tr>
 	<tr>
 		<td>
-			<input type="submit" name="submit" id="button" value="Enviar"  class="m-btn blue rnd" onclick="ActualizarDatos()" />
+			<input type="submit" name="submit" id="button" value="Enviar"  class="m-btn blue rnd" />
 		</td>
 		<td>
 			 <input type="button" class="m-btn red rnd" name="cancelar" id="cancelar" value="Cancelar" onclick="Cancelar()" />
@@ -196,49 +196,108 @@
 
 
 ?>
-<script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
+
  <script type="text/javascript">
 $(document).ready(function(){
+    //Validación
+
+	$("#frmUpComunidad").validate({
+			rules: {
+				nombre: {
+					required: true,
+					maxlength: 50
+				},
+				apaterno:{
+					required:true
+				},
+				amaterno:{
+					required:true
+				},
+				fnacimiento: {
+					required: true
+				},
+				tutor: {
+					required: true
+				},
+				ubicacion: {
+					required: true
+				},
+				lote:{
+					required: true
+				},
+				manzana:{
+					required: true
+				},
+				lote:{
+					required:true
+				},
+				tel_casa:{
+					required:true
+				},
+				tel_tutor:{
+					required:true
+				},
+				correo:{
+					email:true
+				},	
+				edad:{
+					required:true
+				},			
+				num_casa:{
+					required:true
+				},
+				fecha_nacimiento:{
+					required:true
+				},
+				note:{
+					required:false,
+					maxlength: 200
+				}				
+
+			}
+		});
 
     $('#frmUpComunidad').submit( function() {
-
+	if(!$("#frmUpComunidad").valid())
+				return false;
         $.ajax({
             url     : $(this).attr('action'),
             type    : $(this).attr('method'),
             dataType: 'json',
             data    : $(this).serialize(),
-            success : function( data ) {
+           success : function( data ) {
 
-            			if(data.success == true)
-            			{
-                         $('#message').text('Se ha actualizado correctamente el registro'); 
-                         $('#messageBox').removeClass().addClass('success');
-                         $('#messageBox').show();
-					}
-                      
-                         },
-                         
-                     
-            error   : function(data){
-            	if(data.success == true)
-            			{
-                         $('#message').text('Se ha actualizado correctamente el registro'); 
-                         $('#messageBox').removeClass().addClass('success');
-                         $('#messageBox').show();
-					}
-					else{
-                         $('#message').html(data.responseText); 
-                         $('#messageBox').removeClass().addClass('error');
-                        $('#messageBox').show();
-                       
-					}                     
-				 }
+				if(data.success == true)
+				{
+					$('#message').text('Se ha actualizado correctamente el registro'); 
+					$('#messageBox').removeClass().addClass('success');
+					$('#messageBox').show();
+					cancelar();
+				}
+
+			},
+
+
+			error   : function(data){
+				if(data.success == true)
+				{
+					$('#message').text('Se ha actualizado correctamente el registro'); 
+					$('#messageBox').removeClass().addClass('success');
+					$('#messageBox').show();
+					cancelar();
+				}
+				else{
+					$('#message').html(data.responseText); 
+					$('#messageBox').removeClass().addClass('error');
+					$('#messageBox').show();
+
+				}                     
+			}
         });
 
         return false;
     });
 
-    $("#birth").mask("99/99/9999");
-
+   
 });
 </script>

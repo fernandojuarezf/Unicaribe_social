@@ -3,10 +3,7 @@
 <head>
 	<title>Guardar asesor</title>
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="css/screen.css" />
-	<link href="../css/bootstrap.min.css" rel="stylesheet"> 
-	<link href="../css/m-styles.min.css" rel="stylesheet"> 
-	<link href="../css/m-buttons.min.css" rel="stylesheet"> 
+	
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
@@ -136,8 +133,7 @@
 
 
 	</form>
-	<script src="../js/jquery.validate.min.js" type="text/javascript"></script>
-	<script src="../js/messages_es.js" type="text/javascript"></script>
+	
 
 	<script type="text/javascript">
 	$(document).ready(function(){
@@ -156,7 +152,18 @@
 				},
 				hora_fin: {
 					required: true
+				},
+				note:{
+					required:false,
+					maxlength: 200
+				},
+				cupo_max:{
+					required: true
+				},
+				nivel:{
+					required: true
 				}
+
 			}
 		});
 

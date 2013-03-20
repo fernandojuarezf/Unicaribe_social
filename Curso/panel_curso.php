@@ -9,6 +9,16 @@
 <link href="../css/m-icons.min.css" rel="stylesheet"> 
 <link href="../css/m-buttons.min.css" rel="stylesheet"> 
 <link href="../css/styles.css" rel="stylesheet"> 
+
+<link href="../css/bootstrap.min.css" rel="stylesheet"> 
+<link href="../css/m-styles.min.css" rel="stylesheet"> 
+
+<script src="../js/jquery.validate.min.js" type="text/javascript"></script>
+<script src="../js/messages_es.js" type="text/javascript"></script>
+<script type="text/javascript" language="javascript" src="../js/jquery.dataTables.js"></script>
+
+</head>
+<body>
 </head>
 <body>
 
@@ -23,7 +33,8 @@ $consulta=$objCurso->ObtenerCurso();
 
 
 <span id="nuevo"><a href="new_curso.php" class="m-btn"><i class="icon-plus"></i>Nuevo</a></span>
-	<table>
+	<table cellpadding="0" cellspacing="0" border="0" class="display" id="table_curso" width="90%">
+		<thead>
    		<tr class="HeaderStyle">
             <th>ID</th>
    			<th>Nombre</th>
@@ -33,7 +44,8 @@ $consulta=$objCurso->ObtenerCurso();
             <th>Editar</th>
             <th>Eliminar</th>
         </tr>
-        
+        </thead>
+        <tbody>
 <?php
 if($consulta) {
 	while( $cliente = pg_fetch_array($consulta) ){
@@ -54,12 +66,18 @@ if($consulta) {
 	}
 }
 ?>
-
+</tbody>
     </table>
 
     <script type="text/javascript">
 
 $(document).ready(function(){
+    //datatable
+	$('#table_curso').dataTable( {
+								"oLanguage": {
+									"sUrl": "../js/dataTables.spanish.txt"
+								}
+							} );
 	// mostrar formulario de actualizar datos 
 	$("table tr .modi a").click(function(){
 		$('#tabla').hide();

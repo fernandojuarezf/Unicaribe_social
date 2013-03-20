@@ -80,10 +80,25 @@
 		{
 			    $connect = new conexion();
 				$conn= $connect->conectar();	
-				$query = "SELECT spSetComunidad('$this->_nombre','$this->_apaterno', '$this->_amaterno', 
-				'$this->_fecha_nacimiento', '$this->_tutor', '$this->_pariente','$this->_edad', '$this->_ubicacion', '$this->_manzana',
-				'$this->_lote','$this->_calle','$this->_num_casa', '$this->_tel_casa', '$this->_tel_personal', '$this->_tel_tutor', 
-				'$this->_correo', '$this->_escolaridad', '$this->_sexo','$this->_observaciones')";          
+				$query = "SELECT spSetComunidad('$this->_nombre',
+												'$this->_apaterno',
+												'$this->_amaterno', 
+												'$this->_fecha_nacimiento', 
+												'$this->_tutor', 
+												'$this->_pariente',
+												'$this->_edad',
+												'$this->_ubicacion',
+												'$this->_manzana',
+												'$this->_lote',
+												'$this->_calle',
+												'$this->_num_casa', 
+												'$this->_tel_casa', 
+												'$this->_tel_personal', 
+												'$this->_tel_tutor', 
+												'$this->_correo',
+												'$this->_escolaridad', 
+												'$this->_sexo',
+												'$this->_observaciones')";          
 				$res = pg_query($conn,$query);
 				if (!$res) 
 				{ 
@@ -94,6 +109,33 @@
 				} 
 		}
 	
+	//Obtener los registros comunidad de acuerdo al curso que esten inscritos
+
+	public function ObtenerComunida_Curso($idTaller)
+	{
+		$connect = new conexion();
+		$conn= $connect->conectar();
+		$query ="	SELECT cm.id_comunidad,
+						   cm.fotografia,
+						   cm.nombre,
+						   cm.apellido_paterno,
+						   cm.apellido_materno,
+						   cm.fecha_nacimiento
+					FROM comunidad cm
+					WHERE EXISTS (
+							SELECT id_cursocom 
+							FROM curso_comunidad 
+							WHERE id_comunidad = cm.id_comunidad 
+							AND id_curso =$idTaller
+							);"
+		if(!$result= pg_query($conn,$query))
+				{
+					echo pg_last_error($conn);
+					return false;
+				}
+				pg_close($conn);
+				return $result;
+	}
 	//funcion  modelo para querys
 	
 		function mostrar_comunidad($id)
@@ -114,10 +156,26 @@
 		  {
 				$connect = new conexion();
 				$conn= $connect->conectar();
-				$query= "SELECT spupdatecomunidad('$this->_id','$this->_nombre','$this->_apaterno', '$this->_amaterno', 
-				'$this->_fecha_nacimiento','$this->_sexo', '$this->_tutor', '$this->_pariente', '$this->_edad', '$this->_ubicacion', '$this->_manzana',
-				'$this->_lote','$this->_calle','$this->_num_casa', '$this->_tel_casa', '$this->_tel_personal', '$this->_tel_tutor', 
-				'$this->_correo', '$this->_escolaridad', '$this->_observaciones')";  
+				$query= "SELECT spupdatecomunidad('$this->_id',
+												'$this->_nombre',
+												'$this->_apaterno', 
+												'$this->_amaterno', 
+												'$this->_fecha_nacimiento',
+												'$this->_sexo', 
+												'$this->_tutor', 
+												'$this->_pariente', 
+												'$this->_edad', 
+												'$this->_ubicacion', 
+												'$this->_manzana',
+												'$this->_lote',
+												'$this->_calle',
+												'$this->_num_casa', 
+												'$this->_tel_casa', 
+												'$this->_tel_personal',
+												'$this->_tel_tutor', 
+												'$this->_correo', 
+												'$this->_escolaridad', 
+												'$this->_observaciones')";  
 				$res = pg_query($conn,$query);
 				if (!$res) 
 				{ 

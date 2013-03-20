@@ -1,11 +1,9 @@
-
-<!DOCTYPE HTML>
-<html >
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
 <head>
-<title>Guardar asesor</title>
-<link href="../css/bootstrap.min.css" rel="stylesheet"> 
- <link href="../css/m-styles.min.css" rel="stylesheet"> 
- <link href="../css/m-buttons.min.css" rel="stylesheet"> 
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Nuevo</title>
+
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
@@ -33,13 +31,13 @@
 			<label>Apellido Paterno: </label>
 		</td>
 		<td>
-			<input type="text" name="apaterno" required="required"> 
+			<input type="text" name="apaterno"> 
 		</td>
 		<td>
 			<label>Apellido Paterno: </label> 
 		</td>
 		<td>
-			<input type="text" name="amaterno" required="required"> 
+			<input type="text" name="amaterno" > 
 		</td>
 	</tr>
 	
@@ -48,13 +46,13 @@
 			<label>Fecha de Nacimiento: </label>
 		</td>
 		<td>
-			<input type="text" name="fnacimiento"  required="required"> 
+			<input type="text" name="fnacimiento"  > 
 		</td>
 		<td>
 			<label>Tutor: </label>
 		</td>
 		<td>
-			<input type="text" name="tutor" required="required">  
+			<input type="text" name="tutor" >  
 		</td>
 	</tr>
 	
@@ -63,7 +61,7 @@
 			<label>Pariente:  </label> 
 		</td>
 		<td>
-			<input type="text" name="pariente" required="required">
+			<input type="text" name="pariente" >
 		</td>
         
         
@@ -72,7 +70,7 @@
 			<label>Edad: </label> 
 		</td>
 		<td>
-			<input type="text" name="edad" required="required"> 
+			<input type="text" name="edad"> 
 		</td>
 	</tr>
 	
@@ -80,7 +78,7 @@
 		<td>
 			<label>Ubicacion: </label>
 		</td>
-		<td><input type="text" name="ubicacion" required="required"></td>
+		<td><input type="text" name="ubicacion" ></td>
 
 	</tr>
     
@@ -89,12 +87,12 @@
 		<td>
 			<label>Manzana: </label>
 		</td>
-		<td><input type="text" name="manzana" required="required"></td>
+		<td><input type="text" name="manzana" ></td>
 		<td>
 			<label>Lote:  </label>
 		</td>
 		<td>
-			<input type="text" name="lote" required="required"> 
+			<input type="text" name="lote" > 
 		</td>
 	</tr>
     
@@ -103,13 +101,13 @@
 			<label>Calle: </label>
 		</td>
 		<td>
-			<input type="text" name="calle" required="required"> 
+			<input type="text" name="calle" > 
 		</td>
 		<td>
 			<label>No. de Casa: </label>
 		</td>
 		<td>
-			<input type="text" name="num_casa" required="required"> 
+			<input type="text" name="num_casa" > 
 		</td>
 	</tr>
 	
@@ -118,13 +116,13 @@
 			<label>Tel. de Casa: </label>
 		</td>
 		<td>
-			<input type="text" name="tel_casa" required="required">  
+			<input type="text" name="tel_casa" >  
 		</td>
 		<td>
 			<label>Telefono particular:  </label>
 		</td>
 		<td>
-			<input type="text" name="tel_personal" required="required"> 
+			<input type="text" name="tel_personal" > 
 		</td>
 	</tr>
 	
@@ -133,13 +131,13 @@
 			<label>Telefono tutor:  </label> 
 		</td>
 		<td>
-			<input type="text" name="tel_tutor" required="required">
+			<input type="text" name="tel_tutor" >
 		</td>
 		<td>
 			<label>Correo electronico: </label> 
 		</td>
 		<td>
-			<input type="text" name="correo" required="required"> 
+			<input type="text" name="correo" > 
 		</td>
 	</tr>
 	
@@ -148,7 +146,7 @@
 			<label>Escolaridad: </label>
 		</td>
 		<td>
-			<input type="text" name="escolaridad" required="required">  
+			<input type="text" name="escolaridad" >  
 		</td>
 		<td>
 			<label>Sexo: </label>
@@ -191,9 +189,67 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
+    //Validación
+
+	$("#frmNewCumunidad").validate({
+			rules: {
+				nombre: {
+					required: true,
+					maxlength: 50
+				},
+				apaterno:{
+					required:true
+				},
+				amaterno:{
+					required:true
+				},
+				fnacimiento: {
+					required: true
+				},
+				tutor: {
+					required: true
+				},
+				ubicacion: {
+					required: true
+				},
+				lote:{
+					required: true
+				},
+				manzana:{
+					required: true
+				},
+				lote:{
+					required:true
+				},
+				tel_casa:{
+					required:true
+				},
+				tel_tutor:{
+					required:true
+				},
+				correo:{
+					email:true
+				},	
+				edad:{
+					required:true
+				},			
+				num_casa:{
+					required:true
+				},
+				fecha_nacimiento:{
+					required:true
+				},				
+				note:{
+					required:false,
+					maxlength: 200
+				}				
+
+			}
+		});
 
     $('#frmNewCumunidad').submit( function() {
-
+    	if(!$("#frmNewCumunidad").valid())
+				return false;
         $.ajax({
             url     : $(this).attr('action'),
             type    : $(this).attr('method'),
