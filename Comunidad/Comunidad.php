@@ -29,7 +29,7 @@
 		//Segunda prueba commit
 		
 		// This property has no "set" method, and therefore is read-only
-		public function Comunidad(){}
+		public function  Comunidad(){}
 		
  		public function setValues($value2,$value3,$value4,$value5,$value6,$value7,$value8,$value9,$value10,
 								  $value11,$value12,$value13,$value14,$value15,$value16,$value17,$value18,$value19,$value20)
@@ -115,7 +115,7 @@
 	{
 		$connect = new conexion();
 		$conn= $connect->conectar();
-		$query ="	SELECT cm.id_comunidad,
+		$query ="SELECT cm.id_comunidad, 
 						   cm.fotografia,
 						   cm.nombre,
 						   cm.apellido_paterno,
@@ -126,8 +126,7 @@
 							SELECT id_cursocom 
 							FROM curso_comunidad 
 							WHERE id_comunidad = cm.id_comunidad 
-							AND id_curso =$idTaller
-							);"
+							AND id_curso =$idTaller)";
 		if(!$result= pg_query($conn,$query))
 				{
 					echo pg_last_error($conn);

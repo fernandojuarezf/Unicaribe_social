@@ -29,6 +29,8 @@ include "curso.class.php";
 $objCurso=new Curso;
 $consulta=$objCurso->ObtenerCurso();
 
+
+
 ?>
 
 

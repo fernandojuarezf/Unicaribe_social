@@ -26,7 +26,17 @@
 
 	include "Comunidad.php";
 	$objCliente=new Comunidad;
-	$consulta=$objCliente->get_people();
+	$consulta = null;
+	if(isset($_GET['id_curso'])){
+		
+		$consulta=$objCliente->ObtenerComunida_Curso($_GET['id_curso']);
+		}
+		else{
+
+		$consulta=$objCliente->get_people();
+		}
+	
+	
 
 
 	$pasesor= new Comunidad();
@@ -37,7 +47,7 @@
 
 
 	<span id="nuevo"><a href="new_comunidad.php" class="m-btn"><i class="icon-plus"></i>Nuevo</a></span>
-	Taller: <select name="select_taller">
+	Taller: <select name="select_taller" id="select_taller">
 	<option value="">Seleccionar..</option>
 	<?php foreach($asesor as $t_asesor):?>	<option value="<?php echo $t_asesor['id_curso']; ?>">
 	<?php echo $t_asesor['curso']; ?>
@@ -124,6 +134,20 @@
 			url: 'new_comunidad.php',
 			success: function(datos){
 				$("#formulario").html(datos);
+			}
+		});
+		return false;
+	});
+
+	$("#select_taller").change(function(){
+     $.ajax({
+			type: "GET",
+			context: document.body,
+			url: 'panel_comunidad.php?id_curso=' + $(this).val(),
+			success: function(datos){
+				$("#formulario").html("");
+				$("#formulario").html(datos);
+
 			}
 		});
 		return false;
